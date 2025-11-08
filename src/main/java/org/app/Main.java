@@ -1,6 +1,9 @@
-package org.example;
+package org.app;
 
 import java.util.Scanner;
+
+import org.database.DataBase;
+import org.database.Register;
 
 public class Main {
     public static void main(String[] args) {

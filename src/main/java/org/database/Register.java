@@ -1,4 +1,4 @@
-package org.example;
+package org.database;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Scanner;
@@ -7,7 +7,7 @@ public class Register {
     private Scanner input;
 
     public Register(Scanner input) {
-        this.input = input; // usa o mesmo scanner do main
+        this.input = input; 
     }
 
     String url;
