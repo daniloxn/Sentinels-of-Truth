@@ -1,45 +1,24 @@
 package org.app;
+import org.ui.Menus;
+import org.utils.InputUtils;
+import org.utils.ValidationUtils;
 
 import java.util.Scanner;
+import org.database.DataBaseConnection;
 
-import org.database.DataBase;
-import org.database.Register;
 
 public class Main {
     public static void main(String[] args) {
-        DataBase.createTables();
+        DataBaseConnection.createTables();
         int option;
         Scanner input = new Scanner(System.in);
         Register register = new Register(input);
+        boolean continueRunning = true;
 
         do {
-            System.out.print("\n╔══════════════════════════════╗\r\n" + //
-                        "║      SENTINEL OF TRUTH       ║\r\n" + //
-                        "╠══════════════════════════════╣\r\n" +  //
-                        "║ 1 - Register an news         ║\r\n" + //
-                        "║ 2 - Consult as result        ║\r\n" + //
-                        "║ 3 - Update an notice         ║\r\n" + //
-                        "║ 4 - Generate an report       ║\r\n" + //
-                        "║ 5 - Exit the program         ║\r\n" + //
-                        "╚══════════════════════════════╝\r\n" + //
-                        "➤ Choose an option: ");
-
-        option = input.nextInt();
-        
-
-        switch (option) {
-            case 1:
-                register.register();
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-        
-            default:
-                break;
-                }
-
-            } while (option != 5);
+            Menus.menuMain();
+            option = InputUtils.readIntRange("➤ Choose an option: ", 1, 5);
+            continueRunning = ValidationUtils.executeMenuOption(option, register);
+            } while (continueRunning);
         }
     }

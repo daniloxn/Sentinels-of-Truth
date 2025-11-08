@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class DataBase {
+public class DataBaseConnection {
     static String url = "jdbc:sqlite:data/database.db";
 
     public static Connection connect() throws SQLException {
@@ -14,7 +14,7 @@ public class DataBase {
     }
 
     public static void createTables() {
-        try (Connection conn = DataBase.connect();
+        try (Connection conn = DataBaseConnection.connect();
              Statement stmt = conn.createStatement();) {
                 stmt.execute("CREATE TABLE IF NOT EXISTS notices( iD INTEGER PRIMARY KEY AUTOINCREMENT, URL TEXT NOT NULL, STATUS CHAR(10) NOT NULL);");
             } catch (Exception e) {
