@@ -1,6 +1,7 @@
 package org.app;
 import org.ui.Menus;
 import org.utils.InputUtils;
+import org.utils.Utils;
 import org.utils.ValidationUtils;
 
 import java.util.Scanner;
@@ -11,6 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Register register = new Register(input);
+        Utils utils = new Utils(input);
         DBConnection.createTables();
         int option;
         boolean continueRunning = true;

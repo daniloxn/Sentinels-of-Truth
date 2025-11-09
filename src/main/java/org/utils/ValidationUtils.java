@@ -12,7 +12,7 @@ public class ValidationUtils {
                     return true;
                 case 2:
                     ListDB.newsList();
-                    
+                    Utils.interval();
                     return true;
                 case 3:
                     return true;

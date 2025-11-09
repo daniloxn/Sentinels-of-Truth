@@ -1,6 +1,6 @@
 package org.app;
+import org.database.RegisterDB;
 import org.ui.*;
-import org.database.*;
 import org.utils.*;
 
 import java.util.Scanner;
