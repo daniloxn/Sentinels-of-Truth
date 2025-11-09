@@ -1,5 +1,8 @@
 package org.utils;
+import org.database.*;
 import org.app.*;
+
+
 public class ValidationUtils {
     
     public static boolean executeMenuOption(int option, Register register){
@@ -8,6 +11,8 @@ public class ValidationUtils {
                     register.newRegister();
                     return true;
                 case 2:
+                    ListDB.newsList();
+                    
                     return true;
                 case 3:
                     return true;

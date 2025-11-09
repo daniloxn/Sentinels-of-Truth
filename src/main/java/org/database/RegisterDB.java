@@ -3,12 +3,12 @@ package org.database;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-public class DataBaseUtils {
+public class RegisterDB {
     
-    public static void InsertDB(String url, String status) {
+    public static void insertDB(String url, String status) {
         String dados = "INSERT INTO notices(url, status) VALUES (?, ?);";
 
-        try (Connection db = DataBaseConnection.connect();
+        try (Connection db = DBConnection.connect();
             PreparedStatement sql = db.prepareStatement(dados)) {
 
             sql.setString(1, url);

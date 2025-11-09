@@ -4,15 +4,15 @@ import org.utils.InputUtils;
 import org.utils.ValidationUtils;
 
 import java.util.Scanner;
-import org.database.DataBaseConnection;
+import org.database.DBConnection;
 
 
 public class Main {
     public static void main(String[] args) {
-        DataBaseConnection.createTables();
-        int option;
         Scanner input = new Scanner(System.in);
         Register register = new Register(input);
+        DBConnection.createTables();
+        int option;
         boolean continueRunning = true;
 
         do {
@@ -21,4 +21,6 @@ public class Main {
             continueRunning = ValidationUtils.executeMenuOption(option, register);
             } while (continueRunning);
         }
+
+    
     }

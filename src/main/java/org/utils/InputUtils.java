@@ -34,8 +34,7 @@ public class InputUtils {
         System.out.print(promt);
         while (true) {
             if (input.hasNext()) {
-                String value = input.next();
-                input.nextLine();
+                String value = input.nextLine();
                 return value;
             } else {
                 System.out.println("Error, please enter a valid text!");

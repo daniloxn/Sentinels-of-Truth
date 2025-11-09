@@ -15,8 +15,7 @@ public class Register {
     String url;
     String status;
     public void newRegister() {
-        System.out.print("\nURL - ");
-        url = input.next();
+        url = InputUtils.readString("\nURL - ");
         status();
     }
 
@@ -29,7 +28,7 @@ public class Register {
         
         status = ValidationUtils.getStatus(option);
         if (option >=1 && option <= 3) {
-            DataBaseUtils.InsertDB(url, status);
+            RegisterDB.insertDB(url, status);
         }
         
     }    
