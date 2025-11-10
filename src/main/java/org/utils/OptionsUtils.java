@@ -1,18 +1,19 @@
 package org.utils;
+import org.manager.*;
 import org.database.*;
-import org.app.*;
+import org.manager.RegisterNews;
 
 
-public class ValidationUtils {
+
+public class OptionsUtils {
     
-    public static boolean executeMenuOption(int option, Register register){
+    public static boolean executeMenuOption(int option, RegisterNews register){
         switch (option) {
                 case 1:
                     register.newRegister();
                     return true;
                 case 2:
-                    ListDB.newsList();
-                    Utils.interval();
+                    ListNews.list();
                     return true;
                 case 3:
                     return true;
@@ -40,5 +41,26 @@ public class ValidationUtils {
                 return "Unknown";
         }
     }
+
+    public static void executeType(int option) {
+        switch (option) {
+            case 1:
+                ListDB.listAll();
+                break;
+            case 2:
+                ListDB.listReal();
+                break;
+            case 3:
+                ListDB.listFake();
+                break;
+            case 4:
+                ListDB.listNotChecked();
+                break;
+            default:
+                break;
+        }
+    }
+
+    
     
 }

@@ -1,26 +1,121 @@
 package org.database;
-
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 
 public class ListDB {
 
-    public static void newsList(){
-        var list = "SELECT id, url, status FROM notices";
+    public static void listAll(){
+        var listall = "SELECT id, url, status FROM notices";
 
-        try (Connection db = DBConnection.connect();
-             Statement sql = db.createStatement();
-             var rs = sql.executeQuery(list)) {
+        try {
+            System.out.printf("%-5s %-50s %-20s%n", "ID", "URL", "STATUS");
+            System.out.println("---------------------------------------------------------------------------------------");
+
+            DBHelper.executeQuery(listall, rs -> {
+                boolean empty = true;
+
                 while (rs.next()) {
-                    System.out.printf("\nID-%d     URL-%s     STATUS-%s\n",
+                    empty = false;
+                    System.out.printf("%-5d %-50s %-20s%n",
                     rs.getInt("id"),
                     rs.getString("url"),
-                    rs.getString("status"));
+                    rs.getString("status")
+                    );
                 }
-            
+                if (empty) {
+                    System.out.println("No results found.");
+                }
+            });
+            System.out.println("---------------------------------------------------------------------------------------");
         } catch (SQLException e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+            
+    public static void listFake(){
+        var listFake = "SELECT id, url, status FROM notices WHERE status = 'FALSE' ";
+
+        try {
+            System.out.printf("%-5s %-50s %-20s%n", "ID", "URL", "STATUS");
+            System.out.println("---------------------------------------------------------------------------------------");
+    
+             DBHelper.executeQuery(listFake, rs -> {
+                boolean empty = true;
+                while (rs.next()) {
+                    empty = false;
+                    System.out.printf("%-5d %-50s %-20s%n",
+                    rs.getInt("id"),
+                    rs.getString("url"),
+                    rs.getString("status")
+                    );
+                    
+                }
+                if (empty) {
+                    System.out.println("No results found.");
+                }
+            });
+            System.out.println("---------------------------------------------------------------------------------------");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void listReal(){
+        var listFake = "SELECT id, url, status FROM notices WHERE status = 'True' ";
+
+        try {
+            System.out.printf("%-5s %-50s %-20s%n", "ID", "URL", "STATUS");
+            System.out.println("---------------------------------------------------------------------------------------");
+    
+             DBHelper.executeQuery(listFake, rs -> {
+                boolean empty = true;
+
+                while (rs.next()) {
+                    empty = false;
+                    System.out.printf("%-5d %-50s %-20s%n",
+                    rs.getInt("id"),
+                    rs.getString("url"),
+                    rs.getString("status")
+                    );
+                }
+                if (empty) {
+                    System.out.println("No results found.");
+                }
+            });
+            System.out.println("---------------------------------------------------------------------------------------");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void listNotChecked(){
+        var listFake = "SELECT id, url, status FROM notices WHERE status = 'Not checked' ";
+
+        try {
+            System.out.printf("%-5s %-50s %-20s%n", "ID", "URL", "STATUS");
+            System.out.println("---------------------------------------------------------------------------------------");
+    
+             DBHelper.executeQuery(listFake, rs -> {
+                boolean empty = true;
+
+                while (rs.next()) {
+                    empty = false;
+                    System.out.printf("%-5d %-50s %-20s%n",
+                    rs.getInt("id"),
+                    rs.getString("url"),
+                    rs.getString("status")
+                    );
+                    
+                }
+                if (empty) {
+                    System.out.println("No results found.");
+                }
+            });
+            System.out.println("---------------------------------------------------------------------------------------");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
+
