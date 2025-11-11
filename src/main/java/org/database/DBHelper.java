@@ -31,4 +31,15 @@ public class DBHelper {
                 }
         }
     }
+
+    public static void existID(int id) {
+        String sql = "SELECT id FROM notices WHERE id = ?";
+        try {
+            executeUpdate(sql, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    
 }

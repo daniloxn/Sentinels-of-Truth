@@ -3,33 +3,26 @@ import org.database.RegisterDB;
 import org.ui.*;
 import org.utils.*;
 
-import java.util.Scanner;
 
 public class RegisterNews {
-    private Scanner input;
 
-    public RegisterNews(Scanner input) {
-        this.input = input; 
-    }
 
-    String url;
-    String status;
-    public void newRegister() {
+    static String url;
+    static String status;
+    public static void newRegister() {
         url = InputUtils.readString("\nURL - ");
-        status();
+        registerStatus();
     }
 
-    public void status() {
-
+    public static void registerStatus(){
         int option;
         Menus.menuStatus();
-        option = InputUtils.readIntRange("➤ Choose an option: ", 1, 4);
-        input.nextLine(); 
+        option = InputUtils.readIntRange("➤ Choose an status: ", 1, 4);
         status = OptionsUtils.getStatus(option);
 
-        if (option >=1 && option <= 3) {
+        if (option != 4) {
             RegisterDB.insertDB(url, status);
         }
-
-    }    
+    }
+ 
 }

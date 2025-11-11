@@ -33,7 +33,7 @@ public class ListDB {
     }
             
     public static void listFake(){
-        var listFake = "SELECT id, url, status FROM notices WHERE status = 'FALSE' ";
+        var listFake = "SELECT id, url, status FROM notices WHERE status = 'Fake' ";
 
         try {
             System.out.printf("%-5s %-50s %-20s%n", "ID", "URL", "STATUS");
@@ -61,7 +61,7 @@ public class ListDB {
     }
 
     public static void listReal(){
-        var listFake = "SELECT id, url, status FROM notices WHERE status = 'True' ";
+        var listFake = "SELECT id, url, status FROM notices WHERE status = 'Real' ";
 
         try {
             System.out.printf("%-5s %-50s %-20s%n", "ID", "URL", "STATUS");

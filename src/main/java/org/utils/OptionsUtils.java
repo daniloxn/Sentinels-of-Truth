@@ -7,19 +7,22 @@ import org.manager.RegisterNews;
 
 public class OptionsUtils {
     
-    public static boolean executeMenuOption(int option, RegisterNews register){
+    public static boolean executeMenuOption(int option){
         switch (option) {
                 case 1:
-                    register.newRegister();
+                    RegisterNews.newRegister();
                     return true;
                 case 2:
                     ListNews.list();
                     return true;
                 case 3:
+                UpdateNews.updateStatus();
                     return true;
                 case 4:
                     return true;
                 case 5:
+                    return true;
+                case 6:
                     return false;
                 default:
                     System.out.println("Invalid option!");
@@ -30,9 +33,9 @@ public class OptionsUtils {
     public static String getStatus(int option) {
         switch (option) {
             case 1:
-                return "True";
+                return "Real";
             case 2:
-                return "False";
+                return "Fake";
             case 3:
                 return "Not checked";
             case 4:

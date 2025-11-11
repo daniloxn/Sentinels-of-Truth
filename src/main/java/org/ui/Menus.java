@@ -8,8 +8,9 @@ public class Menus {
                         "║ 1 - Register an news         ║\n" + //
                         "║ 2 - Consult as result        ║\n" + //
                         "║ 3 - Update an notice         ║\n" + //
-                        "║ 4 - Generate an report       ║\n" + //
-                        "║ 5 - Exit the program         ║\n" + //
+                        "║ 4 - Delete a news item       ║\n" + // 
+                        "║ 5 - Generate an report       ║\n" + //
+                        "║ 6 - Exit the program         ║\n" + //
                         "╚══════════════════════════════╝\n");
     }
 
