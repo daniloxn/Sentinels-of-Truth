@@ -1,121 +1,80 @@
 package org.database;
 import java.sql.SQLException;
 
+import org.ui.Menus;
+
 
 public class ListDB {
 
-    public static void listAll(){
-        var listall = "SELECT id, url, status FROM notices";
-
+    public static void dbList(String command){
         try {
-            System.out.printf("%-5s %-50s %-20s%n", "ID", "URL", "STATUS");
-            System.out.println("---------------------------------------------------------------------------------------");
-
-            DBHelper.executeQuery(listall, rs -> {
-                boolean empty = true;
-
-                while (rs.next()) {
-                    empty = false;
-                    System.out.printf("%-5d %-50s %-20s%n",
-                    rs.getInt("id"),
-                    rs.getString("url"),
-                    rs.getString("status")
-                    );
-                }
-                if (empty) {
-                    System.out.println("No results found.");
-                }
-            });
-            System.out.println("---------------------------------------------------------------------------------------");
+            if (DBHelper.exists(command)) {
+                Menus.tittleList();
+                DBHelper.executeQuery(command, rs -> {
+                    while (rs.next()) {
+                        System.out.printf("%-5d %-50s %-20s%n",
+                        rs.getInt("id"),
+                        rs.getString("url"),
+                        rs.getString("status")
+                        );
+                    }
+                });
+                System.out.println("---------------------------------------------------------------------------------------");
+                
+            } else {
+                Menus.tittleList();
+                System.out.println("No news found with this ID.");
+                System.out.println("---------------------------------------------------------------------------------------");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void listAll(){
+        var listall = "SELECT id, url, status FROM notices";
+        dbList(listall);
     }
             
     public static void listFake(){
         var listFake = "SELECT id, url, status FROM notices WHERE status = 'Fake' ";
 
-        try {
-            System.out.printf("%-5s %-50s %-20s%n", "ID", "URL", "STATUS");
-            System.out.println("---------------------------------------------------------------------------------------");
-    
-             DBHelper.executeQuery(listFake, rs -> {
-                boolean empty = true;
-                while (rs.next()) {
-                    empty = false;
-                    System.out.printf("%-5d %-50s %-20s%n",
-                    rs.getInt("id"),
-                    rs.getString("url"),
-                    rs.getString("status")
-                    );
-                    
-                }
-                if (empty) {
-                    System.out.println("No results found.");
-                }
-            });
-            System.out.println("---------------------------------------------------------------------------------------");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        dbList(listFake);
     }
 
     public static void listReal(){
-        var listFake = "SELECT id, url, status FROM notices WHERE status = 'Real' ";
+        var listReal = "SELECT id, url, status FROM notices WHERE status = 'Real' ";
 
-        try {
-            System.out.printf("%-5s %-50s %-20s%n", "ID", "URL", "STATUS");
-            System.out.println("---------------------------------------------------------------------------------------");
-    
-             DBHelper.executeQuery(listFake, rs -> {
-                boolean empty = true;
-
-                while (rs.next()) {
-                    empty = false;
-                    System.out.printf("%-5d %-50s %-20s%n",
-                    rs.getInt("id"),
-                    rs.getString("url"),
-                    rs.getString("status")
-                    );
-                }
-                if (empty) {
-                    System.out.println("No results found.");
-                }
-            });
-            System.out.println("---------------------------------------------------------------------------------------");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        dbList(listReal);
     }
 
     public static void listNotChecked(){
-        var listFake = "SELECT id, url, status FROM notices WHERE status = 'Not checked' ";
+        var listNotChecked = "SELECT id, url, status FROM notices WHERE status = 'Not checked' ";
 
+        dbList(listNotChecked);
+    }
+
+    public static boolean searchID(int id) {
+        String search = "SELECT id, url, status FROM notices WHERE id = " + id;
         try {
-            System.out.printf("%-5s %-50s %-20s%n", "ID", "URL", "STATUS");
-            System.out.println("---------------------------------------------------------------------------------------");
-    
-             DBHelper.executeQuery(listFake, rs -> {
-                boolean empty = true;
-
-                while (rs.next()) {
-                    empty = false;
+            if (DBHelper.exists(search)) {
+                Menus.tittleList();
+                DBHelper.executeQuery(search, rs -> {
                     System.out.printf("%-5d %-50s %-20s%n",
-                    rs.getInt("id"),
-                    rs.getString("url"),
-                    rs.getString("status")
-                    );
-                    
-                }
-                if (empty) {
-                    System.out.println("No results found.");
-                }
-            });
-            System.out.println("---------------------------------------------------------------------------------------");
-        } catch (SQLException e) {
+                        rs.getInt("id"),
+                        rs.getString("url"),
+                        rs.getString("status")
+                        );
+                }); 
+            } else {
+                System.out.println("\nNo news found with this ID.");
+            }
+            return true;
+        } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
+    
 }
 

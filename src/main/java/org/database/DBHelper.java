@@ -8,14 +8,14 @@ public class DBHelper {
 
     public static int executeUpdate(String sql, Object... params) throws SQLException {
         try (Connection conn = DBConnection.connect();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
                 
                 for (int i = 0; i < params.length; i++) {
                     stmt.setObject(i + 1, params[i]);
                 }
                 
                 return stmt.executeUpdate();
-             }
+            }
     }
 
     public static void executeQuery(String sql, ResultSetHandler handler, Object... params) throws SQLException {
@@ -25,21 +25,22 @@ public class DBHelper {
                 for (int i = 0; i < params.length; i++) {
                     stmt.setObject( + 1, params[i]);
                 }
-
                 try (ResultSet rs = stmt.executeQuery()) {
                     handler.handle(rs);
                 }
         }
     }
 
-    public static void existID(int id) {
-        String sql = "SELECT id FROM notices WHERE id = ?";
-        try {
-            executeUpdate(sql, id);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public static boolean exists(String sql, Object... params) throws SQLException {
+        try (Connection conn = DBConnection.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            for (int i = 0; i < params.length; i++) {
+                stmt.setObject(i + 1, params[i]);
+            }
+            try (ResultSet rs = stmt.executeQuery()) {
+                return rs.next();
+            }
         }
     }
-
     
 }

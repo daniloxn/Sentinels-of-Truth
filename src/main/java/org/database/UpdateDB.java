@@ -7,9 +7,9 @@ public class UpdateDB {
             int lines = DBHelper.executeUpdate(sql, novoStatus, id);
 
             if (lines == 0) {
-                System.out.println("No news items were found with that ID.");
+                System.out.println("\nNo news items were found with that ID.\n");
             } else {
-                System.out.print("Status updated successfully.");
+                System.out.print("\nStatus updated successfully.\n");
             }
         } catch (Exception e){
             e.printStackTrace();

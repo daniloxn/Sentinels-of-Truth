@@ -16,13 +16,12 @@ public class OptionsUtils {
                     ListNews.list();
                     return true;
                 case 3:
-                UpdateNews.updateStatus();
+                    UpdateNews.updateStatus();
                     return true;
                 case 4:
+                DeleteNews.delete();
                     return true;
                 case 5:
-                    return true;
-                case 6:
                     return false;
                 default:
                     System.out.println("Invalid option!");
@@ -45,7 +44,7 @@ public class OptionsUtils {
         }
     }
 
-    public static void executeType(int option) {
+    public static void executeTypeOption(int option) {
         switch (option) {
             case 1:
                 ListDB.listAll();
@@ -58,6 +57,18 @@ public class OptionsUtils {
                 break;
             case 4:
                 ListDB.listNotChecked();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public static void executeDeleteOption(int confirmation, int id) {
+        switch (confirmation) {
+            case 1:
+                DeleteDB.delete(id);
+                break;
+            case 2:
                 break;
             default:
                 break;

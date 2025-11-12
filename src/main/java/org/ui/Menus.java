@@ -9,8 +9,7 @@ public class Menus {
                         "║ 2 - Consult as result        ║\n" + //
                         "║ 3 - Update an notice         ║\n" + //
                         "║ 4 - Delete a news item       ║\n" + // 
-                        "║ 5 - Generate an report       ║\n" + //
-                        "║ 6 - Exit the program         ║\n" + //
+                        "║ 5 - Exit the program         ║\n" + //
                         "╚══════════════════════════════╝\n");
     }
 
@@ -36,5 +35,10 @@ public class Menus {
                 "║ (3) - Not cheched            ║\n" + //
                 "║ (4) - Back to main menu      ║\n" + //
                 "╚══════════════════════════════╝\n");
+    }
+
+    public static void tittleList() {
+        System.out.printf("%n%-5s %-50s %-20s%n", "ID", "URL", "STATUS");
+        System.out.println("---------------------------------------------------------------------------------------");
     }
 }

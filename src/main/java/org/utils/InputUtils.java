@@ -41,4 +41,24 @@ public class InputUtils {
             }
         }
     }
+
+    public static String readStringOptions(String promt, String... options) {
+        System.out.print(promt);
+
+        while (true) {
+            String value = input.nextLine().trim();
+
+            for (String option : options) {
+                if (value.equalsIgnoreCase(option)) {
+                    return value;
+                }
+            }
+
+            System.out.println("Invalid option. Allowed values: ");
+            for (String option : options) {
+                System.out.println("-" + option);
+            }
+            System.out.print(promt);
+        }
+    }
 }

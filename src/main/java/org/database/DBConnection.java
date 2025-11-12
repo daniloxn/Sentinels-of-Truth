@@ -3,7 +3,7 @@ package org.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 
 
 public class DBConnection {
@@ -14,9 +14,9 @@ public class DBConnection {
     }
 
     public static void createTables() {
-        try (Connection conn = DBConnection.connect();
-             Statement stmt = conn.createStatement();) {
-                stmt.execute("CREATE TABLE IF NOT EXISTS notices( id INTEGER PRIMARY KEY AUTOINCREMENT, url TEXT NOT NULL, status CHAR(10) NOT NULL);");
+        var createTable = "CREATE TABLE IF NOT EXISTS notices( id INTEGER PRIMARY KEY AUTOINCREMENT, url TEXT NOT NULL, status CHAR(10) NOT NULL);";
+        try {
+            DBHelper.executeUpdate(createTable);
             } catch (Exception e) {
                 e.printStackTrace();
             }

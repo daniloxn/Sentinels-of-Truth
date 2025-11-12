@@ -1,14 +1,14 @@
 package org.database;
 
 public class DeleteDB {
-     public static void deleteDB() {
-        String dados = "DELETE FROM notices WHERE id = ?";
+    public static void delete(int id) {
+        var delete = "DELETE FROM notices WHERE ID = " + id;
 
         try {
-            
-            DBHelper.executeQuery(dados, );
+            DBHelper.executeUpdate(delete);
+            System.out.println("\nNews item successfully deleted.");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-     }
-
-    
+    }
 }
