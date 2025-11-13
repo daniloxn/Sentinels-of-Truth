@@ -1,6 +1,6 @@
-package org.manager;
-import org.ui.*;
-import org.utils.*;
+package org.app.manager;
+import org.app.ui.*;
+import org.app.utils.*;
 
 public class ListNews {
     public static void list() {

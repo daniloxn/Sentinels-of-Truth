@@ -1,4 +1,4 @@
-package org.database;
+package org.app.database;
 
 public class UpdateDB {
     public static void updateStatus(int id, String novoStatus) {

@@ -1,6 +1,6 @@
-package org.manager;
-import org.database.UpdateDB;
-import org.utils.*;
+package org.app.manager;
+import org.app.database.UpdateDB;
+import org.app.utils.*;
 public class UpdateNews {
     public static void updateStatus() {
         int id;

@@ -1,9 +1,8 @@
 package org.app;
-import org.ui.Menus;
-import org.utils.InputUtils;
-import org.utils.OptionsUtils;
-
-import org.database.DBConnection;
+import org.app.database.DBConnection;
+import org.app.ui.Menus;
+import org.app.utils.InputUtils;
+import org.app.utils.OptionsUtils;
 
 
 

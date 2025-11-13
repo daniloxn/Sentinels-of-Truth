@@ -1,7 +1,7 @@
-package org.database;
+package org.app.database;
 import java.sql.SQLException;
 
-import org.ui.Menus;
+import org.app.ui.Menus;
 
 
 public class ListDB {

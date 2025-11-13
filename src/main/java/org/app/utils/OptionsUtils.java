@@ -1,7 +1,6 @@
-package org.utils;
-import org.manager.*;
-import org.database.*;
-import org.manager.RegisterNews;
+package org.app.utils;
+import org.app.database.*;
+import org.app.manager.*;
 
 
 

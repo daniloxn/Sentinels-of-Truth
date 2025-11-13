@@ -1,4 +1,4 @@
-package org.database;
+package org.app.database;
 
 public class RegisterDB {
     public static void insertDB(String url, String status){

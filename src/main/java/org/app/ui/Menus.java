@@ -1,4 +1,4 @@
-package org.ui;
+package org.app.ui;
 
 public class Menus {
     public static void menuMain(){

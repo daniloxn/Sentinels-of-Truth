@@ -1,7 +1,7 @@
-package org.manager;
-import org.database.RegisterDB;
-import org.ui.*;
-import org.utils.*;
+package org.app.manager;
+import org.app.database.RegisterDB;
+import org.app.ui.*;
+import org.app.utils.*;
 
 
 public class RegisterNews {

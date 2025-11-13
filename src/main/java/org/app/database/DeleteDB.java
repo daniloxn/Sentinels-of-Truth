@@ -1,4 +1,4 @@
-package org.database;
+package org.app.database;
 
 public class DeleteDB {
     public static void delete(int id) {

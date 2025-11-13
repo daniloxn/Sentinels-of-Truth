@@ -1,5 +1,5 @@
-package org.utils;
-import org.ui.Menus;
+package org.app.utils;
+import org.app.ui.Menus;
 
 public class GetStatus {
 

@@ -1,9 +1,8 @@
-package org.manager;
+package org.app.manager;
 
-import org.database.ListDB;
-
-import org.utils.InputUtils;
-import org.utils.OptionsUtils;
+import org.app.database.ListDB;
+import org.app.utils.InputUtils;
+import org.app.utils.OptionsUtils;
 
 public class DeleteNews {
     public static void delete() {
